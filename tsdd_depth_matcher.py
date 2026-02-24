@@ -20,8 +20,6 @@ Output:
 import math
 import os
 from io import BytesIO
-import tkinter as tk
-from tkinter import filedialog, messagebox, simpledialog
 
 import numpy as np
 import pandas as pd
@@ -514,6 +512,15 @@ class TerminalProgressReporter:
 
 def main():
     """GUI-driven workflow for matching depth points to TSDD segments."""
+    try:
+        import tkinter as tk
+        from tkinter import filedialog, messagebox, simpledialog
+    except ImportError as error:
+        raise RuntimeError(
+            "Tkinter is required for desktop GUI mode. "
+            "Use the Streamlit app (`streamlit run web_app.py`) in environments without Tk support."
+        ) from error
+
     root = tk.Tk()
     root.withdraw()
 

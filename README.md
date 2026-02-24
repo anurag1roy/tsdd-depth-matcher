@@ -5,6 +5,19 @@ Upload TSDD segment data and depth points to generate a matched Excel report wit
 For a complete end-to-end operating guide (inputs, run steps, outputs, QC, and troubleshooting), see `WORKING_GUIDE.md`.
 For a one-page non-technical guide, see `QUICK_START.md`.
 
+## Runtime Modes (Important)
+
+This project supports two ways to run depth matching:
+
+- **Web app mode (recommended for sharing):** `streamlit run web_app.py`
+- **Desktop GUI mode (local only):** `python tsdd_depth_matcher.py`
+
+Notes:
+
+- `web_app.py` does **not** require `tkinter`.
+- `tsdd_depth_matcher.py` desktop GUI uses `tkinter`, so it is intended for local machines with Tk support.
+- Streamlit Cloud should run `web_app.py` as the main file.
+
 ## GitHub Repo About (Copy/Paste)
 
 Use this in your GitHub repo **About** field:
@@ -99,6 +112,8 @@ Use `tsdd_depth_matcher.py` to associate depth points with the nearest TSDD segm
 python tsdd_depth_matcher.py
 ```
 
+This is the **desktop GUI workflow** and requires `tkinter` (local machine with Tk support).
+
 ### Expected Inputs
 
 1. **TSDD file** (CSV/XLSX/XLS), each row is one segment with:
@@ -156,6 +171,8 @@ Use `web_app.py` to let users upload files in browser and download `depth_points
 pip install -r requirements.txt
 streamlit run web_app.py
 ```
+
+For Streamlit Community Cloud, set **Main file path** to `web_app.py`.
 
 ### What users do in the web app
 
